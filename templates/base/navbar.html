@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-{% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+{% url 'home' as home_url %}
+{% url 'photography' as photography_url %}
 
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -21,6 +23,12 @@
                     </li>
                     <li class="nav-item">
                         <a {% if request.path == about_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'about' %}">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a {% if request.path == photography_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'photography' %}">photography</a>
+                    </li>
+                    <li class="nav-item">
+                        <a {% if request.path == contact_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'contact' %}">contact</a>
                     </li>
                 </ul>
             </div>

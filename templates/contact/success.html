@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Success!{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div>
+            <h3 class="poppins mt-5">thanks!</h3>
+        </div>
+    </div>
+    <div class="row m-3">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <a href="{% url 'home' %}">
+                <img alt="thumbs up" class="img-fluid" src="{% static 'images/thumbs_up.png' %}">
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center pt-3 pb-5">
+        <p class="thanks">I'll get back to you as soon as possible.</p>
+    </div>
+</div>
+
+{% endblock content %}
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% block title %}Contact me{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row m-3 d-flex justify-content-center pt-3">
+        <div class="col-md-6">
+            <p>Go ahead and use the form below, or write me directly at <strong>ntogasa {at} gmail {dot} com</strong>.</p>
+            <p>For encrypted communication, email me at <strong>ntogasa {at} protonmail {dot} com</strong>.</p>
+            <p>I will get back to you as soon as I can.</p>
+        </div>
+    </div>
+    <div class="row m-3 d-flex justify-content-center">
+        <div class="col-md-6">
+        {% include 'contact/contact_form.html' %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+</html>

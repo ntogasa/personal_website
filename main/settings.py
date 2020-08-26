@@ -32,12 +32,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third party apps
+    'crispy_forms',
+
+    # Self-created apps
+    'apps.contact',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +75,10 @@ TEMPLATES = [
     },
 ]
 
+# DJANGO CRISPY FORMS
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# WSGI
 WSGI_APPLICATION = 'main.wsgi.application'
 
 
@@ -123,3 +134,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# Email (Contact Form) - allow less secure apps
+# less secure app switch for gmail: myaccount.google.com/lesssecureapps
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
