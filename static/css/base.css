@@ -1,3 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap');
+
 #navbar {
     background-color: #fff;
+}
+
+a.nav-link-passive {
+    font-weight: bold;
+    color: #F76C5E;
+}
+
+a.nav-link-active {
+    color: #000;
+    font-weight: bold;
+    font-family: Poppins, Roboto, sans-serif;
+}
+
+a.navbar-brand {
+    font-family: Poppins, Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #000;
+    margin-top: 2rem;
+}
+
+h1.page-heading {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: Poppins, Roboto, sans-serif;
+    color: #5ECCB8;
+    font-weight: bold;
+}
+
+h3.poppins {
+    font-family: Poppins, Roboto, sans-serif;
+}
+
+h4.subheading {
+    font-family: Poppins, Roboto, sans-serif;
+    font-weight: bold;
+    color: #777777;
+}
+
+h5.poppins {
+    font-family: Poppins, Roboto, sans-serif;
 }
