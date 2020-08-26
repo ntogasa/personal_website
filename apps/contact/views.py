@@ -12,16 +12,17 @@ def contact_view(request):
     will load a blank form for the user.
 
     :param request:     A GET or POST request.
-    :return:            For GET requests, an empty contact form is loaded. For POST requests, the user
-                        is redirected to the 'success' page.
+    :return:            For GET requests an empty contact form is returned. For POST requests,
+                        the submitted data is sent as an email and user is redirected to the
+                        'success' page.
     """
-    # If the request is a GET request, then simply load the contact form blank
+    # If GET request, load empty contact form
     if request.method == 'GET':
         form = ContactForm()
-    # However if it is not a GET, and instead a POST request, handle the data input in the form
+    # If POST request...
     else:
         form = ContactForm(request.POST)
-        # check that all required fields are filled
+        # Check that required fields are filled
         if form.is_valid():
             subject = form.cleaned_data['subject']
             email = form.cleaned_data['email']
@@ -35,7 +36,7 @@ def contact_view(request):
                           message=message,
                           from_email=email,
                           recipient_list=['ntogasa@gmail.com'])
-            # Handle any error here, return that Invalid header is found (NEED LANDING PAGE FOR THIS)
+            # Handle any error here
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
@@ -43,5 +44,5 @@ def contact_view(request):
 
 
 def success_view(request):
-    """Accepts a request and returns the rendered 'contact/success.html' template"""
+    """Returns 'success' page upon successful submission of the contact form"""
     return render(request, 'contact/success.html')
