@@ -1,0 +1,1 @@
+I use this website to showcase my writing, photography, and web design portfolios.

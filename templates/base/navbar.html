@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% url 'home' as home_url %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <a class="navbar-brand" href="{% url 'home' %}">nikk ogasa</a>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <nav class="navbar navbar-expand-md m-0" id="navbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon">
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                    <a {% if request.path == home_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'home' %}">home</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
