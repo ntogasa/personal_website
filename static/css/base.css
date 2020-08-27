@@ -8,11 +8,13 @@
 
 a.nav-link-passive {
     color: #000;
+    font-family: Poppins, Roboto, sans-serif;
 }
 
 a.nav-link-active {
     color: #000;
     font-family: Poppins, Roboto, sans-serif;
+    text-decoration: underline;
 }
 
 a.navbar-brand {
