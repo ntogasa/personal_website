@@ -23,5 +23,6 @@ urlpatterns = [
     path('about/', views.about_view, name='about'),
     path('contact/', include('apps.contact.urls')),
     path('photography/', views.photography_view, name='photography'),
-    path('side_projects/', views.side_projects_view, name='side_projects')
+    path('side_projects/', views.side_projects_view, name='side_projects'),
+    path('writing/', views.writing_view, name='writing'),
 ]

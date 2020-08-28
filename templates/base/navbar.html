@@ -6,6 +6,7 @@
 {% url 'home' as home_url %}
 {% url 'photography' as photography_url %}
 {% url 'side_projects' as side_projects_url %}
+{% url 'writing' as writing_url %}
 
 <div class="container-fluid">
     <div class="row justify-content-center brand-row">
@@ -25,6 +26,9 @@
                         <a {% if request.path == about_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'about' %}">ABOUT</a>
                     </li>
                     <li class="nav-item">
+                        <a {% if request.path == writing_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'writing' %}">WRITING</a>
+                    </li>
+                    <li class="nav-item">
                         <a {% if request.path == photography_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'photography' %}">PHOTOGRAPHY</a>
                     </li>
                     <li class="nav-item">
@@ -39,16 +43,19 @@
     </div>
     <!--Navbar icons-->
     <div class="row justify-content-center">
-            <a {% if request.path == about_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'about' %}">
+            <a class="nav-link" href="{% url 'about' %}">
                 <img class="nav-icon" src="{% static 'images/hand.gif' %}">
             </a>
-            <a {% if request.path == photography_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'photography' %}">
+            <a class="nav-link" href="{% url 'writing' %}">
+                <img class="nav-icon" src="{% static 'images/writing.gif' %}">
+            </a>
+            <a  class="nav-link" href="{% url 'photography' %}">
                 <img class="nav-icon" src="{% static 'images/camera.gif' %}">
             </a>
-            <a {% if request.path == side_projects_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'side_projects' %}">
+            <a class="nav-link" href="{% url 'side_projects' %}">
                 <img class="nav-icon" src="{% static 'images/lightbulb.gif' %}">
             </a>
-            <a {% if request.path == contact_url %} class="nav-link nav-link-active" {%else %} class="nav-link nav-link-passive" {%endif%} href="{% url 'contact' %}">
+            <a class="nav-link" href="{% url 'contact' %}">
                 <img class="nav-icon" src="{% static 'images/contact.gif' %}">
             </a>
     </div>

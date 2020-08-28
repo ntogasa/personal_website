@@ -16,7 +16,12 @@ def photography_view(request):
     """Handles requests for the 'photography' page"""
     return render(request, 'photography.html')
 
+
 def side_projects_view(request):
     """Handles requests for the 'photography' page"""
     return render(request, 'side_projects.html')
 
+
+def writing_view(request):
+    """Handles requests for the 'writing' page"""
+    return render(request, 'writing.html')
