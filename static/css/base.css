@@ -20,6 +20,7 @@ a.nav-link-passive {
 
 a.nav-link-active {
     color: #000;
+    font-weight: bold;
 }
 
 a.navbar-brand {
@@ -27,6 +28,11 @@ a.navbar-brand {
     font-size: 2.5rem;
     color: #000;
     margin-top: 2rem;
+}
+
+div.story-row {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 h1.page-heading {
@@ -48,4 +54,14 @@ h4.subheading {
 
 h5.poppins {
     font-family: Poppins, Roboto, sans-serif;
+}
+
+img.nav-icon {
+    height: 100px;
+    width: 100px;
+    margin-top: -1rem;
+}
+
+span.big {
+    font-size: 2rem;
 }
