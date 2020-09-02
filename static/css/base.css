@@ -30,17 +30,28 @@ a.navbar-brand.navbar-name {
     margin-left: 1rem;
 }
 
+div.carousel-item {
+    margin: auto;
+    text-align: center;
+}
+
+div.photo-row {
+    margin: 0;
+    padding: 0;
+}
+
 div.story-row {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
 div.thumbnail-box {
-    width: 15rem;
     height: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 h1.page-heading {
@@ -70,9 +81,10 @@ img.nav-icon {
     height: 1rem;
 }
 
-img.photo-thumbnail {
-    max-height: 100%;
+img.photo {
     max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 nav.navbar {
