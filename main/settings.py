@@ -134,8 +134,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 # Media files
-MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_URL = 'media/'                                      # the url of the uploaded photos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')        # where photos are uploaded to
 
 # Email (Contact Form) - allow less secure apps
 # less secure app switch for gmail: myaccount.google.com/lesssecureapps

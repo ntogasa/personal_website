@@ -5,11 +5,13 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="row d-flex">COMING SOON</div>
-    <div class="row d-flex">
-        <div class="col-md-10">
-            <img src="{% static 'images/page-under-construction.gif' %}">
+    <div class="row d-flex"></div>
+    <div class="row justify-content-center mx-4">
+        {% for photo in photos.all %}
+        <div class="col-4 thumbnail-box my-4">
+            <img src="{{ photo.image.url }}" alt="{{ photo.alt }}" class="photo-thumbnail">
         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock content %}

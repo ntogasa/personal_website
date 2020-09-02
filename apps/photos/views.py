@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from .models import Photo
+
 
 # Create your views here.
 def photo_gallery_view(request):
-    return render(request, 'photos/photography.html')
+    photos = Photo.objects.filter(status=1)
+    context = {
+        'photos': photos,
+    }
+    return render(request, 'photos/photography.html', context)

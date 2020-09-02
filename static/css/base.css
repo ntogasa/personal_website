@@ -35,6 +35,14 @@ div.story-row {
     margin-bottom: 2rem;
 }
 
+div.thumbnail-box {
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 h1.page-heading {
     margin-top: 2rem;
     font-family: Vollkorn, sans-serif;
@@ -62,10 +70,15 @@ img.nav-icon {
     height: 1rem;
 }
 
+img.photo-thumbnail {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 nav.navbar {
     margin-top: 1.5rem;
-    margin-right: 1.5rem;
-    margin-left: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 span.big {
