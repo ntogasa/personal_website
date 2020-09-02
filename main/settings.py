@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Self-created apps
     'apps.contact',
+    'apps.photos',
 ]
 
 MIDDLEWARE = [
@@ -131,11 +132,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Media files
-MEDIA_URL = '/mediafiles/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Email (Contact Form) - allow less secure apps
 # less secure app switch for gmail: myaccount.google.com/lesssecureapps
