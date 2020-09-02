@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% block title %}Side Projects{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="page-heading text-center">
+                Side projects
+            </h1>
+            <hr>
+            {% for side_project in side_projects %}
+            <h4 class="subheading">{{ side_project.name }}</h4>
+            <p>{{ side_project.description }}</p>
+            <a href="{{ side_project.link }}">Learn more.</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+</html>

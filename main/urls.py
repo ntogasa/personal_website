@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about_view, name='about'),
     path('contact/', include('apps.contact.urls')),
-    path('photography/', include('apps.photos.urls'), name='photography'),
-    path('side_projects/', views.side_projects_view, name='side_projects'),
+    path('photography/', include('apps.photos.urls')),
+    path('side_projects/', include('apps.side_projects.urls')),
     path('writing/', views.writing_view, name='writing'),
 ]

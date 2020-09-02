@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Self-created apps
     'apps.contact',
     'apps.photos',
+    'apps.side_projects',
 ]
 
 MIDDLEWARE = [
