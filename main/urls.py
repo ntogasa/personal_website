@@ -27,5 +27,5 @@ urlpatterns = [
     path('contact/', include('apps.contact.urls')),
     path('photography/', include('apps.photos.urls')),
     path('side_projects/', include('apps.side_projects.urls')),
-    path('writing/', views.writing_view, name='writing'),
+    path('writing/', include('apps.writing.urls')),
 ]
