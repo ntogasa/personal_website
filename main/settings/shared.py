@@ -146,8 +146,9 @@ STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'      # for AWS S3
 STATICFILES_DIRS = [                                                # for AWS S3 use
     os.path.join(BASE_DIR, 'static'),
 ]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')                       # where photos are uploaded to
 STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'              # for AWS S3 use
+STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'         # for AWS S3 use
 STATICFILES_FINDERS = (                                             # for AWS S3 use
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -165,7 +166,7 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_PORT = config('EMAIL_PORT')
 
 # Admin media (added during AWS S3 config)
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'

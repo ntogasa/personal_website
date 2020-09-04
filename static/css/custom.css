@@ -27,12 +27,17 @@ a.navbar-brand.navbar-name {
     font-size: 2rem;
     color: #3D1F00;
     text-align: right;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 div.carousel-item {
     margin: auto;
     text-align: center;
+}
+
+div.footer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 div.photo-row {
@@ -73,6 +78,10 @@ h5.poppins {
     font-family: Poppins, Roboto, sans-serif;
 }
 
+img.about-photo {
+    max-height: 30rem;
+}
+
 img.banner {
     height: 4rem;
 }
@@ -86,6 +95,10 @@ img.photo {
     max-height: 25rem;
     margin: 0 auto;
     padding: 0;
+}
+
+img.success {
+    max-height: 25rem;
 }
 
 nav.navbar {
