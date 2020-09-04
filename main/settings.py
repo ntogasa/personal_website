@@ -25,12 +25,10 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=False)
-
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     # Django apps
     'django.contrib.admin',
@@ -86,9 +84,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 WSGI_APPLICATION = 'main.wsgi.application'
 
 
-# Database
+# Database - currently set to use PostgreSQL
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -103,7 +100,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -122,26 +118,46 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
+# Amazon Web Services (AWS) - store and serve static and media files
+AWS_LOCATION = 'static'
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+# Tell django-storages the domain to use to refer to static files
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+DEFAULT_FILE_STORAGE = 'main.storage_backends.MediaStorage'
+AWS_DEFAULT_ACL = None
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+# STATIC_URL = '/static/'                                           # for local server use
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)            # for local server use
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'      # for AWS S3 use
+STATICFILES_DIRS = [                                                # for AWS S3 use
+    os.path.join(BASE_DIR, 'static'),
+]
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'              # for AWS S3 use
+STATICFILES_FINDERS = (                                             # for AWS S3 use
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
-# Media files
-MEDIA_URL = 'media/'                                      # the url of the uploaded photos
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')        # where photos are uploaded to
+# Media files (for files that are uploaded after deployment, during production usage)
+MEDIA_URL = 'media/'                                        # the url of the uploaded photos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')                # where photos are uploaded to
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'storage_backends.MediaStorage'
 
 # Email (Contact Form) - allow less secure apps
 # less secure app switch for gmail: myaccount.google.com/lesssecureapps
@@ -151,7 +167,5 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 
-# Amazon Web Services (AWS)
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+# Admin media (added during AWS S3 config)
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
