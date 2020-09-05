@@ -14,9 +14,9 @@ import os
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
+print("base dir path", BASE_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -126,36 +126,37 @@ USE_TZ = True
 
 
 # Amazon Web Services (AWS) - store and serve static and media files
-AWS_LOCATION = 'static'
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
-# Tell django-storages the domain to use to refer to static files
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-DEFAULT_FILE_STORAGE = 'main.storage_backends.MediaStorage'
-AWS_DEFAULT_ACL = None
+USE_S3 = config('USE_S3', cast=bool)
+if USE_S3:
+    AWS_LOCATION = 'static'
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    # Tell django-storages the domain to use to refer to static files
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    DEFAULT_FILE_STORAGE = 'main.storage_backends.MediaStorage'
+    AWS_DEFAULT_ACL = None
+    # AWS Static file handling
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'  # for AWS S3 use
+    STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'         # for AWS S3 use
+    STATICFILES_FINDERS = (                                             # for AWS S3 use
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    )
+else:
+    # Local static file handling
+    STATIC_URL = '/static/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-# STATIC_URL = '/static/'                                           # for local server use
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)            # for local server use
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'      # for AWS S3 use
-STATICFILES_DIRS = [                                                # for AWS S3 use
-    os.path.join(BASE_DIR, 'static'),
-]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)            # for local server use
 STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'         # for AWS S3 use
-STATICFILES_FINDERS = (                                             # for AWS S3 use
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
 
 # Media files (for files that are uploaded after deployment, during production usage)
-MEDIA_URL = 'media/'                                        # the url of the uploaded photos
+MEDIA_URL = '/media/'                                        # the url of the uploaded photos
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')                # where photos are uploaded to
 MEDIAFILES_LOCATION = 'media'
 DEFAULT_FILE_STORAGE = 'storage_backends.MediaStorage'
