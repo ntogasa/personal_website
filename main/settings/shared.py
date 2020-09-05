@@ -142,11 +142,11 @@ AWS_DEFAULT_ACL = None
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 # STATIC_URL = '/static/'                                           # for local server use
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)            # for local server use
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'      # for AWS S3 use
 STATICFILES_DIRS = [                                                # for AWS S3 use
     os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'         # for AWS S3 use
 STATICFILES_FINDERS = (                                             # for AWS S3 use
