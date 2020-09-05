@@ -5,8 +5,8 @@ import django_heroku
 # Heroku config variables
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
-ALLOWED_HOSTS = ['*']
-DJANGO_ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.nikkogasa.herokuapp.com']
+DJANGO_ALLOWED_HOSTS = ['.nikkogasa.herokuapp.com']
 
 DATABASES = {
     'default': {
