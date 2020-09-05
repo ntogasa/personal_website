@@ -1,10 +1,12 @@
 from main.settings.shared import *
+import os
 import django_heroku
 
 # Heroku config variables
 SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 ALLOWED_HOSTS = ['*']
+DJANGO_ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
