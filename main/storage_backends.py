@@ -4,7 +4,7 @@ from django.conf import settings
 
 class MediaStorage(S3Boto3Storage):
     """Custom storage class that ensures media files are stored seperately from static files"""
-    location = settings.STATICFILES_LOCATION
+    location = settings.MEDIAFILES_LOCATION
 
 
 class StaticStorage(S3Boto3Storage):
