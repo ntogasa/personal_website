@@ -1,6 +1,7 @@
 from main.settings.shared import *
 import os
 import django_heroku
+import dj_database_url
 
 # Heroku config variables
 SECRET_KEY = os.environ['SECRET_KEY']
@@ -10,15 +11,9 @@ DJANGO_ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Use PostgreSQL in place of SQLite3 for production
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['PSQL_DB_NAME'],
-        'USER': os.environ['PSQL_DB_USER'],
-        'PASSWORD': os.environ['PSQL_DB_PASSWORD'],
-        'HOST': os.environ['PSQL_HOST'],
-        'PORT': os.environ['PSQL_PORT'],
+    'default': dj_database_url.config()
     }
-}
+
 
 USE_S3 = os.environ['USE_S3']
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
