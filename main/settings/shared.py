@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('PSQL_DB_NAME'),
+        'USER': config('PSQL_DB_USER'),
+        'PASSWORD': config('PSQL_DB_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -155,7 +159,7 @@ STATICFILES_LOCATION = 'static'
 MEDIA_URL = '/media/'                                        # the url of the uploaded photos
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')                # where photos are uploaded to
 MEDIAFILES_LOCATION = 'media'
-DEFAULT_FILE_STORAGE = 'storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE = 'main.storage_backends.MediaStorage'
 
 # Email (Contact Form) - allow less secure apps
 # less secure app switch for gmail: myaccount.google.com/lesssecureapps

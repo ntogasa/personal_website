@@ -29,5 +29,6 @@ EMAIL_PORT = os.environ['EMAIL_PORT']
 # Activate Django-Heroku
 django_heroku.settings(locals())
 
+# Workaround the PostgreSQL mandate for SSL
 options = DATABASES['default'].get('OPTIONS', ())
 options.pop('sslmode', None)
