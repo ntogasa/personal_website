@@ -8,14 +8,15 @@ DEBUG = False
 ALLOWED_HOSTS = ['.herokuapp.com']
 DJANGO_ALLOWED_HOSTS = ['.herokuapp.com']
 
+# Use PostgreSQL in place of SQLite3 for production
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ['PSQL_DB_NAME'],
         'USER': os.environ['PSQL_DB_USER'],
         'PASSWORD': os.environ['PSQL_DB_PASSWORD'],
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': os.environ['PSQL_HOST'],
+        'PORT': os.environ['PSQL_PORT'],
     }
 }
 
@@ -32,3 +33,6 @@ EMAIL_PORT = os.environ['EMAIL_PORT']
 
 # Activate Django-Heroku
 django_heroku.settings(locals())
+
+options = DATABASES['default'].get('OPTIONS', ())
+options.pop('sslmode', None)
