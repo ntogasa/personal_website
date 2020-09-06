@@ -7,6 +7,9 @@ import sys
 def main():
     # Set 'main.settings.development' as default settings file
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'main.settings.development')
+    # If in production mode, use production settings
+    if os.environ.get('PROD'):
+        DJANGO_SETTINGS_MODULE = 'main.settings.production'
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
