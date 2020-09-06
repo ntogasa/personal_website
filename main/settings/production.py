@@ -11,7 +11,7 @@ DJANGO_ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Use PostgreSQL in place of SQLite3 for production
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': dj_database_url.config(os.environ('DATABASE_URL'))
     }
 
 
