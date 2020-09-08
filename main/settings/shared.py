@@ -36,11 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',                   # Django REST API
 
     # Third party apps
-    'crispy_forms',             # form styling
-    'storages',                 # remote storage
-    'sorl.thumbnail',           # thumbnail generator
+    'crispy_forms',                     # form styling
+    'storages',                         # remote storage
+    'sorl.thumbnail',                   # thumbnail generator
 
     # Self-created apps
     'apps.contact',
