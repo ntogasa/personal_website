@@ -8,4 +8,4 @@ def photo_gallery_view(request):
     context = {
         'photos': photos,
     }
-    return render(request, 'photos/photography.html', context)
+    return render(request, 'photos/gallery.html', context)

@@ -14,36 +14,6 @@ DATABASES = {
     'default': dj_database_url.config()
     }
 
-USE_S3 = os.environ['USE_S3']
-if USE_S3:
-    AWS_LOCATION = 'static'
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    # Tell django-storages the domain to use to refer to static files
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    AWS_S3_OBJECT_PARAMETERS = {
-        'CacheControl': 'max-age=86400',
-    }
-    DEFAULT_FILE_STORAGE = 'main.storage_backends.MediaStorage'
-    AWS_DEFAULT_ACL = None
-    # AWS Static file handling
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'  # for AWS S3 use
-    STATICFILES_STORAGE = 'main.storage_backends.StaticStorage'         # for AWS S3 use
-    STATICFILES_FINDERS = (                                             # for AWS S3 use
-        'django.contrib.staticfiles.finders.FileSystemFinder',
-        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    )
-else:
-    # Local static file handling
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
-
-
-
-
 
 EMAIL_HOST = os.environ['EMAIL_HOST']
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']

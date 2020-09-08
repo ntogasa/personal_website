@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third party apps
-    'crispy_forms',
-    'storages',
+    'crispy_forms',             # form styling
+    'storages',                 # remote storage
+    'sorl.thumbnail',           # thumbnail generator
 
     # Self-created apps
     'apps.contact',

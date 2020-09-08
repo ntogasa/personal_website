@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block link %}
+<!--simplelightbox and css.photo CSS files used to show gallery layout-->
+<link rel="stylesheet" href="{% static 'css/simplelightbox.scss' %}">
+<link href="{% static 'css/photo.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+	<div class="gallery text-center text-center m-0 p-0">
+		{% if photos %}
+			{% for photo in photos %}
+				<!--sorl.thumbnail creation-->
+				{% thumbnail photo.picture "250x250" crop="center" as im %}
+					<!--Link to original photo url-->
+					<a href="{{ photo.picture.url }} ">
+						<!--Display sorl.thumbnail image -->
+						<img class="img-fluid" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ photo.alt }}">
+					</a>
+				{% endthumbnail %}
+			{% endfor %}
+		{% else %}
+			<p>No photo available.</p>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+
+<!--Extra javascript used to display gallery-->
+{% block extra_js %}
+	<script type="text/javascript" src="{% static 'js/simple-lightbox.js' %}"></script>
+	<script type='text/javascript'>
+		$(document).ready(function() {
+			$('.gallery a').simpleLightbox();
+		});
+	</script>
+{% endblock %}

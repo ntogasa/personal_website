@@ -3,17 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>nikk ogasa | {% block title%}{% endblock title %}</title>
+    <title>nikk ogasa | {% block title%}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    {% block link %}{% endblock %}
 </head>
 
 <body>
-    <!--Navigation bar-->
-    {% include 'base/navbar.html' %}
-    <!--Content-->
-    {% block content %}
-    {% endblock content%}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 m-0 p-0">
+                <!--Navigation bar-->
+                {% include 'base/navbar.html' %}
+            </div>
+                <!--Content-->
+                {% block content %}
+                {% endblock content%}
+        </div>
+    </div>
+
     <!--Footer-->
     <div class="footer container-fluid">
         <div class="row justify-content-center">
@@ -29,5 +37,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
