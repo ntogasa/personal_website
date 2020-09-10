@@ -43,8 +43,6 @@
 {% block extra_js %}
 	<script type="text/javascript" src="{% static 'js/simple-lightbox.js' %}"></script>
 	<script type='text/javascript'>
-		$(document).ready(function() {
-			$('.gallery a').simpleLightbox();
-		});
+		new SimpleLightbox({elements: '.gallery a'});
 	</script>
 {% endblock %}
