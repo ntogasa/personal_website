@@ -5,7 +5,7 @@ import dj_database_url
 
 # Heroku config variables
 SECRET_KEY = os.environ['SECRET_KEY']
-DEBUG = os.environ['DEBUG']
+DEBUG = os.environ['DEBUG'] == 'True'
 ALLOWED_HOSTS = ['*']
 DJANGO_ALLOWED_HOSTS = ['*']
 
