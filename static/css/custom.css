@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 
 a.carousel-control-next {
     width: 30%;
@@ -14,7 +16,7 @@ a.carousel-control-prev {
 }
 
 a.nav-link {
-    font-family: Vollkorn, sans-serif;
+    font-family: Montserrat, sans-serif;
     color: #3D1F00;
     text-align: right;
     padding-right: 0;
@@ -31,7 +33,7 @@ a.nav-link-active {
 }
 
 a.navbar-brand.navbar-name {
-    font-family: Vollkorn, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-size: 2rem;
     color: #3D1F00;
     text-align: right;
@@ -43,9 +45,27 @@ div.carousel-item {
     text-align: center;
 }
 
+div.centered {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+div.centered h1 {
+  font-size: 3rem;
+  font-family: 'Archivo Black';
+}
+
 div.footer {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+div.home-overlay {
+    position: relative;
+
 }
 
 div.photo-row {
@@ -69,12 +89,12 @@ div.thumbnail-box {
 
 h1.page-heading {
     margin-top: 2rem;
-    font-family: Vollkorn, sans-serif;
+    font-family: Montserrat, sans-serif;
     font-weight: bold;
 }
 
 h3.poppins {
-    font-family: Poppins, Roboto, sans-serif;
+    font-family: Montserrat, Roboto, sans-serif;
 }
 
 h4.subheading {
@@ -83,7 +103,7 @@ h4.subheading {
 }
 
 h5.poppins {
-    font-family: Poppins, Roboto, sans-serif;
+    font-family: Montserrat, Roboto, sans-serif;
 }
 
 img.about-photo {
