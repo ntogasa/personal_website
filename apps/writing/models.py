@@ -11,6 +11,7 @@ class WritingPieces(models.Model):
     byline = models.CharField(max_length=5000, default='Nikk Ogasa')
     publication = models.CharField(max_length=200, default='')
     syndication = models.CharField(max_length=200, default='')
-    link = models.URLField(null=True, blank=True)
+    pub_link = models.URLField(null=True, blank=True)
+    pdf_link = models.URLField(null=True, blank=True)
     date = models.DateField()
     status = models.IntegerField(choices=STATUS, default=0)
