@@ -10,7 +10,7 @@ class WritingPieces(models.Model):
     title = models.CharField(max_length=200)
     byline = models.CharField(max_length=5000, default='Nikk Ogasa')
     publication = models.CharField(max_length=200, default='')
-    syndication = models.CharField(max_length=200, default='')
+    syndication = models.CharField(max_length=200, blank=True, null=True)
     pub_link = models.URLField(null=True, blank=True)
     pdf_link = models.URLField(null=True, blank=True)
     date = models.DateField()
