@@ -12,32 +12,17 @@
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-sm-11 col-md-8">
-            <h3 class="text-center"><i>Published Work</i></h3>
 
-            <h5>Journalism</h5>
-            <p><a href="https://www.montereyherald.com/2020/11/06/the-post-wildfire-threat-debris-flows-and-flash-floods/ " target="_blank">
-                The post-wildfire threat--debris flows and flash floods</a>, <i>The Monterey Herald</i>, 6 November 2020</p>
-            <p><a href="https://www.montereyherald.com/2020/11/03/the-sardine-war-hits-a-lull-but-the-tides-are-rising/" target="_blank">
-                The sardine war hits a lull, but the tides are rising</a>, <i>The Monterey Herald, East Bay Times, The Mercury News, SiliconValley.com</i>, 3 November 2020</p>
+            <h5><strong><i>Journalism</i></strong></h5>
+            {% for piece in writing_pieces %}
+            <p><a href="{{ piece.link }}" target="_blank">{{ piece.title }}</a>, <i>{{ piece.publication }}, {{ piece.syndication }}</i>, {{ piece.date }}</p>
+            {% endfor %}
 
-
-            <h5>Research</h5>
+            <h5><strong><i>Research</i></strong></h5>
             <p>Ogasa, NT 2020, <i><a href="https://www.escholarship.mcgill.ca/concern/theses/x920g208s?locale=en" target="_blank">
                 Constraining the fault-valve model at Val-d'Or, Quebec
             </a></i>
             , McGill University, Montreal</p>
-
-
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-sm-11 col-md-8">
-            {% for piece in writing_pieces %}
-            <a href="{{ piece.link }}">
-                <h4 class="subheading">{{ piece.title }}</h4>
-            </a>
-            <small>{{ piece.byline }}</small>
-            {% endfor %}
         </div>
     </div>
 </div>
