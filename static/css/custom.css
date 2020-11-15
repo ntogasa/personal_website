@@ -141,6 +141,11 @@ img.photo {
     padding: 0;
 }
 
+img.social-logo {
+    max-width: 2rem;
+    border-radius: 15%;
+}
+
 img.success {
     max-height: 25rem;
 }
