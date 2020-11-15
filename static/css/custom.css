@@ -70,6 +70,7 @@ div.home-overlay {
 
 div.home-container {
     padding: 4rem;
+    padding-bottom: 6rem;
     background: url("/static/images/lake.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
