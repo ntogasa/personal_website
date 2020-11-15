@@ -15,7 +15,7 @@
 
             <h5><strong><i>Journalism</i></strong></h5>
             {% for piece in writing_pieces %}
-            <p><a href="{{ piece.pdf_link }}" target="_blank">{{ piece.title }}</a>, <i>{{ piece.publication }}, {{ piece.syndication }}</i>, {{ piece.date }} </p>
+            <p><a href="{{ piece.pdf_link }}" target="_blank">{{ piece.title }}</a>, <i>{{ piece.publication }}, {% if piece.syndication %}{{ piece.syndication }}, {% endif %}</i>{{ piece.date }} </p>
             {% endfor %}
 
             <h5><strong><i>Research</i></strong></h5>
