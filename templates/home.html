@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% extends 'base/base.html' %}
 {% load static %}
+{% url 'contact' as contact_url %}
+
 
 {% block title %}Home{% endblock title %}
 
@@ -12,16 +14,25 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <h3 class="poppins m-2">Nikk Ogasa</h3>
+        <h2 class="page-heading">Nikk Ogasa</h2>
     </div>
     <div class="row d-flex justify-content-center">
-        <p>science writer, environmental journalist</p>
+        <p>Science Writer, Environmental Journalist</p>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-11 col-sm-6">
+        <p>M.S. Geology | B.S. Earth Science</p>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <p>CV: <a href="https://drive.google.com/file/d/1tAiqLDmDnCLPgEZXF9ApXgDmDkcKUYsC/view?usp=sharing" target="_blank"> Online</a>, <a href="https://drive.google.com/file/d/1lUTEdBkbF80s2QaSyQLpUxXCpr_P8KV1/view?usp=sharing" target="_blank">Printable</a></p>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <a class="btn btn-primary" href="{% url 'contact' %}" target="_blank">Contact Me</a>
+    </div>
+    <div class="row d-flex justify-content-center m-4">
+        <div class="justify-content-center">
+            <a href="https://github.com/ntogasa" target="_blank"><img alt="Nikk Ogasa Github link" src="{% static 'images/GitHub-Mark-32px.png' %}"></a>
+            <a href="https://twitter.com/nikkogasa" target="_blank"><img alt="Nikk Ogasa twitter link" src="{% static 'images/twitter-Mark-32px.png' %}"></a>
         </div>
     </div>
-
-
 </div>
 {% endblock content %}
