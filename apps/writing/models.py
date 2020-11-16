@@ -5,6 +5,11 @@ STATUS = (
     (1, 'Publish')
 )
 
+FEATURE = (
+    (0, 'Do not feature'),
+    (1, 'Feature')
+)
+
 # Create your models here.
 class WritingPieces(models.Model):
     title = models.CharField(max_length=200)
@@ -14,4 +19,5 @@ class WritingPieces(models.Model):
     pub_link = models.URLField(null=True, blank=True)
     pdf_link = models.URLField(null=True, blank=True)
     date = models.DateField()
+    feature = models.IntegerField(choices=FEATURE, default=0)
     status = models.IntegerField(choices=STATUS, default=0)

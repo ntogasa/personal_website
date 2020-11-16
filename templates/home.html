@@ -7,37 +7,41 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<div class="container-fluid home-container">
+<div class="container-fluid">
     <div class="row d-flex justify-content-center">
         <div class="col-6 col-xs-4 col-sm-2 text-center mt-2 p-0">
             <img class="img-fluid home-photo" alt="Science writer Nikk Ogasa" src="{% static 'images/portrait1.jpg' %}">
         </div>
     </div>
-    <div class="whiter row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <h2 class="page-heading text-center">Nikk Ogasa</h2>
     </div>
-    <div class="whiter row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <h5 class="text-center">Science Writer, Environmental Journalist</h5>
     </div>
-    <div class="whiter row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <p class="text-center">Editorial Intern at the Monterey Herald</p>
     </div>
-    <div class="whiter row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <p class="text-center">UCSC Science Communication 2021</p>
     </div>
-    <div class="whiter row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
         <p class="text-center">M.S. Geology | B.S. Earth Science</p>
     </div>
     <div class="row d-flex justify-content-center">
         <a class="btn btn-primary" href="{% url 'contact' %}" target="_blank"><strong>Contact Me</strong></a>
     </div>
-    <!--Social
+    <!--Social Media-->
     <div class="row d-flex justify-content-center">
         <div class="col-8 text-center m-4">
             <a href="https://github.com/ntogasa" target="_blank"><img class="social-logo"  alt="Nikk Ogasa Github link" src="{% static 'images/github.svg' %}"></a>
             <a href="https://twitter.com/nikkogasa" target="_blank"><img class="social-logo"  alt="Nikk Ogasa twitter link" src="{% static 'images/twitter.svg' %}"></a>
         </div>
     </div>
-    -->
+    <!--Featured stories-->
+    <div class="row d-flex justify-content-center">
+    </div>
+
+
 </div>
 {% endblock content %}
