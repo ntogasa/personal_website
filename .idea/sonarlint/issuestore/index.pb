@@ -31,3 +31,9 @@ N
 templates/contact/success.html,8/4/84a37e17712be756b36942588f6bb36ccfb5b9c1
 S
 #templates/contact/contact_form.html,4/a/4a6b14119c7fe7a16c2147f02ee0e0f472fc0a3f
+D
+templates/about.html,5/8/58893e517e4076b20838ca69fba7259ba475306a
+E
+apps/writing/admin.py,b/5/b5c7fc2ea57a9b86cc4e235792c555c449a0658c
+F
+apps/writing/models.py,d/5/d58665c3629af56aa044b77be8f173efadf5f5de

@@ -11,14 +11,27 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-12 col-sm-11 col-md-8">
-
-            <h5><strong>Journalism</strong></h5>
+        <div class="col-12 col-sm-11 col-md-9 mt-3">
+            <h5 class="text-center"><strong>Featured Work</strong></h5>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mb-3">
+        {% for feature in featured_pieces %}
+        <div class="card col-12 col-sm-3 p-1">
+            <img src="{{ feature.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+            <a href="{{feature.pdf_link}}" target="_blank"><strong>{{feature.title}}</strong></a>
+            <p>{{feature.date}} | {{feature.publication}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-sm-11 col-md-9">
+            <h5 class="text-center"><strong>Journalism</strong></h5>
             {% for piece in writing_pieces %}
             <p><a href="{{ piece.pdf_link }}" target="_blank">{{ piece.title }}</a>, <i>{{ piece.publication }}, {% if piece.syndication %}{{ piece.syndication }}, {% endif %}</i>{{ piece.date }} </p>
             {% endfor %}
 
-            <h5><strong>Research</strong></h5>
+            <h5 class="text-center"><strong>Research</strong></h5>
             <p>Ogasa, NT 2020, <i><a href="https://drive.google.com/file/d/1B1yfmJztGLfl8yFCfbDpwBit94_oDpmV/view?usp=sharing" target="_blank">
                 Constraining the fault-valve model at Val-d'Or, Quebec
             </a></i>
