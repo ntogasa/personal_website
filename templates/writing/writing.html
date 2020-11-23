@@ -7,13 +7,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-11 col-md-10">
-            <h1 class="page-heading text-center">Writing Portfolio</h1>
+            <h1 class="page-heading text-center">Writing</h1>
             <hr>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-sm-11 col-md-9 mt-3">
-            <h5 class="text-center"><strong>Featured Work</strong></h5>
+            <h5 class="text-center"><strong>Selected Clips</strong></h5>
         </div>
     </div>
     <div class="row d-flex justify-content-center mb-3">
@@ -29,11 +29,16 @@
         <div class="col-12 col-sm-11 col-md-9">
             <h5 class="text-center"><strong>Journalism</strong></h5>
             {% for piece in writing_pieces %}
-            <p><a href="{{ piece.pdf_link }}" target="_blank">{{ piece.title }}</a>, <i>{{ piece.publication }}, {% if piece.syndication %}{{ piece.syndication }}, {% endif %}</i>{{ piece.date }} </p>
+            <p>
+                <a href="{{ piece.pub_link }}" target="_blank">{{ piece.title }}</a>, <i>{{ piece.publication }}, {% if piece.syndication %}{{ piece.syndication }}, {% endif %}</i>{{ piece.date }}
+                {% if piece.pdf_link %}
+                     - <a href="{{ piece.pdf_link }}"> PDF</a>
+                {% endif %}
+            </p>
             {% endfor %}
 
             <h5 class="text-center"><strong>Research</strong></h5>
-            <p>Ogasa, NT 2020, <i><a href="https://drive.google.com/file/d/1B1yfmJztGLfl8yFCfbDpwBit94_oDpmV/view?usp=sharing" target="_blank">
+            <p>Ogasa, N.T. 2020, Thesis: <i><a href="https://drive.google.com/file/d/1B1yfmJztGLfl8yFCfbDpwBit94_oDpmV/view?usp=sharing" target="_blank">
                 Constraining the fault-valve model at Val-d'Or, Quebec
             </a></i>
             , McGill University, Montreal</p>
