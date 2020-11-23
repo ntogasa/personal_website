@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-        <div class="col-6 col-xs-4 col-sm-2 text-center mt-2 p-0">
+        <div class="col-6 col-xs-4 col-sm-3 text-center mt-2 p-0">
             <img class="img-fluid home-photo" alt="Science writer Nikk Ogasa" src="{% static 'images/portrait1.jpg' %}">
         </div>
     </div>
@@ -34,6 +34,20 @@
     </div>
     <!--Featured stories-->
     <div class="row d-flex justify-content-center">
+        <div class="col-12 col-sm-11 col-md-9 mt-3">
+            <h5 class="text-center"><strong>Featured Work From
+                <a href="{% url 'writing' %}"> My Portfolio</a></strong>
+            </h5>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center mb-3">
+        {% for feature in featured_pieces %}
+        <div class="card col-12 col-sm-3 m-1 p-2">
+            <img src="{{ feature.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+            <a href="{{feature.pdf_link}}" target="_blank"><strong>{{feature.title}}</strong></a>
+            <p><i>{{feature.publication}}</i> | {{feature.date}}</p>
+        </div>
+        {% endfor %}
     </div>
 
 

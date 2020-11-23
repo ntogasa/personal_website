@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.views import generic
+from django.apps import apps
 
 
 def home_view(request):
     """Handles requests for the 'home' page"""
-    return render(request, 'home.html')
+    writing_pieces = apps.get_model('writing', 'WritingPieces')
+    featured_pieces = writing_pieces.objects.filter(feature=1).order_by('-date')
+    context = {'featured_pieces': featured_pieces[:3]}
+    return render(request, 'home.html', context)
 
 
 def about_view(request):
