@@ -5,8 +5,8 @@
 
 {% block content %}
 <div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 col-sm-11 col-md-9">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-10">
             <h1 class="page-heading text-center">Writing Portfolio</h1>
             <hr>
         </div>
@@ -18,7 +18,7 @@
     </div>
     <div class="row d-flex justify-content-center mb-3">
         {% for feature in featured_pieces %}
-        <div class="card col-12 col-sm-3 m-1 p-2">
+        <div class="card col-12 col-sm-3 m-1 py-2">
             <img src="{{ feature.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
             <a href="{{feature.pdf_link}}" target="_blank"><strong>{{feature.title}}</strong></a>
             <p><i>{{feature.publication}}</i> | {{feature.date}}</p>
