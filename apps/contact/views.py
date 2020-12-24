@@ -29,13 +29,13 @@ def contact_view(request):
             message = form.cleaned_data['message']
             name = form.cleaned_data['name']
             if name:
-                subject = f"{name}: {subject}"
+                subject = f"{name},{email}: {subject}"
             # Attempt to send an email
             try:
-                send_mail(subject=subject,
-                          message=message,
-                          from_email=email,
-                          recipient_list=['ntogasa@gmail.com'])
+                send_mail(subject,
+                          message,
+                          email,
+                          ['ntogasa@gmail.com'])
             # Handle any error here
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
